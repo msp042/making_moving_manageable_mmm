@@ -1,8 +1,11 @@
 class BoxesController < ApplicationController
+  before_action :current_user_must_be_box_user,
+                only: %i[edit update destroy]
+
   before_action :set_box, only: %i[show edit update destroy]
 
   def index
-    @q = Box.ransack(params[:q])
+    @q = current_user.boxes.ransack(params[:q])
     @boxes = @q.result(distinct: true).includes(:items, :category,
                                                 :user).page(params[:page]).per(10)
   end
@@ -52,11 +55,19 @@ class BoxesController < ApplicationController
 
   private
 
+  def current_user_must_be_box_user
+    set_box
+    unless current_user == @box.user
+      redirect_back fallback_location: root_path,
+                    alert: "You are not authorized for that."
+    end
+  end
+
   def set_box
     @box = Box.find(params[:id])
   end
 
   def box_params
-    params.require(:box).permit(:user_id, :category_id)
+    params.require(:box).permit(:user_id, :category_id, :size)
   end
 end

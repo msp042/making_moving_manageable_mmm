@@ -2,8 +2,7 @@ class UsersController < ApplicationController
   before_action :set_user, only: %i[show edit update destroy]
 
   def index
-    @q = User.ransack(params[:q])
-    @users = @q.result(distinct: true).includes(:boxes).page(params[:page]).per(10)
+    @users = User.page(params[:page]).per(10)
   end
 
   def show
@@ -46,6 +45,6 @@ class UsersController < ApplicationController
   end
 
   def user_params
-    params.require(:user).permit(:name, :email, :password)
+    params.require(:user).permit(:username)
   end
 end

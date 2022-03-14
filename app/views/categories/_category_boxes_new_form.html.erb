@@ -1,12 +1,14 @@
 <%= form_with(model: @box, local: true) do |f| %>
 
-  <div class="form-group">
-    <%= f.label :user_id %>
-
-    <%= f.collection_select :user_id, User.all, :id, :to_s, {}, class: "form-control" %>
-  </div>
+  <%= f.hidden_field :user_id, value: current_user.id %>
 
   <%= f.hidden_field :category_id, value: @category.id %>
+
+  <div class="form-group">
+    <%= f.label :size %>
+
+    <%= f.text_field :size, class: "form-control" %>
+  </div>
 
   <%= f.submit "Create box", class: "btn btn-block btn-outline-secondary" %>
 <% end %>
