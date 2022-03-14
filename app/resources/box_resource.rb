@@ -7,6 +7,8 @@ class BoxResource < ApplicationResource
 
   # Direct associations
 
+  belongs_to :category
+
   has_many   :items
 
   # Indirect associations
