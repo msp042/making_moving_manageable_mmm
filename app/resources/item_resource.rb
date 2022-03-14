@@ -6,6 +6,8 @@ class ItemResource < ApplicationResource
 
   # Direct associations
 
+  belongs_to :box
+
   # Indirect associations
 
 end
