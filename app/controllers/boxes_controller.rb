@@ -3,8 +3,8 @@ class BoxesController < ApplicationController
 
   def index
     @q = Box.ransack(params[:q])
-    @boxes = @q.result(distinct: true).includes(:items, :category,
-                                                :user).page(params[:page]).per(10)
+    @boxes = @q.result(distinct: true).includes(:items,
+                                                :category).page(params[:page]).per(10)
   end
 
   def show
@@ -57,6 +57,6 @@ class BoxesController < ApplicationController
   end
 
   def box_params
-    params.require(:box).permit(:user_id, :category_id)
+    params.require(:box).permit(:user_id, :category_id, :size)
   end
 end

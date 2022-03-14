@@ -2,6 +2,23 @@
   <p class="lead">Narrow results:</p>
 
   <div class="form-group">
+    <%= f.label :user_id, "User" %>
+    <div class="row">
+      <div class='col-md-6 mb-1'>
+        <%= f.text_field :user_id_gteq, :class => "form-control", :placeholder => "User greater than or equal to" %>
+      </div>
+      <div class='col-md-6'>
+        <%= f.text_field :user_id_lteq, :class => "form-control", :placeholder => "User less than or equal to" %>
+      </div>
+    </div>
+  </div>
+
+  <div class="form-group">
+    <%= f.label :size_cont, "Size contains" %>
+    <%= f.text_field :size_cont, :class => "form-control", :placeholder => "Size contains" %>
+  </div>
+
+  <div class="form-group">
     <%= f.label :created_at, "Created at" %>
     <div class="row">
       <div class='col-md-6 mb-1'>
@@ -45,11 +62,6 @@
   <div class="form-group">
     <%= f.label :category_name_cont, "Category name contains" %>
     <%= f.text_field :category_name_cont, :class => "form-control", :placeholder => "Category name contains" %>
-  </div>
-
-  <div class="form-group">
-    <%= f.label :user_name_cont, "User name contains" %>
-    <%= f.text_field :user_name_cont, :class => "form-control", :placeholder => "User name contains" %>
   </div>
 
 

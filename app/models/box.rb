@@ -1,8 +1,6 @@
 class Box < ApplicationRecord
   # Direct associations
 
-  belongs_to :user
-
   belongs_to :category
 
   has_many   :items,
@@ -15,6 +13,6 @@ class Box < ApplicationRecord
   # Scopes
 
   def to_s
-    user.to_s
+    user_id
   end
 end

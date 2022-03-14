@@ -4,10 +4,9 @@ class BoxResource < ApplicationResource
   attribute :updated_at, :datetime, writable: false
   attribute :user_id, :integer
   attribute :category_id, :integer
+  attribute :size, :string
 
   # Direct associations
-
-  belongs_to :user
 
   belongs_to :category
 
