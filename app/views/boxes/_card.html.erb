@@ -6,11 +6,7 @@
   <div class="card-body">
     <dl class="mb-1">
       <dt>User</dt>
-      <dd>
-        <% if @box.user.present? %>
-          <%= link_to box.user, box.user %>
-        <% end %>
-      </dd>
+      <dd><%= box.user_id %></dd>
 
       <dt>Category</dt>
       <dd>
@@ -18,6 +14,9 @@
           <%= link_to box.category, box.category %>
         <% end %>
       </dd>
+
+      <dt>Size</dt>
+      <dd><%= box.size %></dd>
 
     </dl>
 

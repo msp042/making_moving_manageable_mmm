@@ -2,8 +2,6 @@ Rails.application.routes.draw do
   scope path: ApplicationResource.endpoint_namespace,
         defaults: { format: :jsonapi } do
     scope module: "api/v1", as: "api" do
-      resources :users
-
       resources :categories
 
       resources :items
@@ -15,7 +13,6 @@ Rails.application.routes.draw do
   end
   ActiveAdmin.routes(self)
   root to: "boxes#index"
-  resources :users
   resources :categories
   resources :items
   resources :boxes
