@@ -12,5 +12,4 @@ class Item < ApplicationRecord
   def to_s
     box.to_s
   end
-
 end

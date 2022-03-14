@@ -9,5 +9,4 @@ class ItemResource < ApplicationResource
   belongs_to :box
 
   # Indirect associations
-
 end

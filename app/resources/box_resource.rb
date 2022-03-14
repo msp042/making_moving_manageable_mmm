@@ -14,5 +14,4 @@ class BoxResource < ApplicationResource
   has_many   :items
 
   # Indirect associations
-
 end
