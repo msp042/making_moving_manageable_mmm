@@ -44,6 +44,7 @@ end
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
 gem "activeadmin", "2.2.0"
 gem "coffee-rails"
+gem "devise", "~> 4.7.2"
 gem "graphiti", "~> 1.2"
 gem "graphiti-rails", github: "firstdraft/graphiti-rails", branch: "develop"
 gem "ideas_generators", github: "firstdraft/ideas_generators"

@@ -12,8 +12,10 @@
       <li class="list-group-item d-flex align-items-center justify-content-between">
         <%= link_to box, box %>
 
-        <%= link_to box, method: :delete, data: { confirm: "Do you really want to delete this box" } do %>
-          <i class="fas fa-trash-alt"></i>
+        <% if current_user == box.user %>
+          <%= link_to box, method: :delete do %>
+            <i class="fas fa-trash-alt"></i>
+          <% end %>
         <% end %>
 
       </li>

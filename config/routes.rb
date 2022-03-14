@@ -13,8 +13,10 @@ Rails.application.routes.draw do
     mount VandalUi::Engine, at: "/vandal"
     # your routes go here
   end
+  devise_for :admin_users, ActiveAdmin::Devise.config
   ActiveAdmin.routes(self)
   root to: "boxes#index"
+  devise_for :users
   resources :users
   resources :categories
   resources :items

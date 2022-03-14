@@ -1,4 +1,5 @@
 class User < ApplicationRecord
+  include JwtToken
   # Direct associations
 
   has_many   :boxes,
@@ -11,6 +12,11 @@ class User < ApplicationRecord
   # Scopes
 
   def to_s
-    name
+    email
   end
+
+  # Include default devise modules. Others available are:
+  # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
+  devise :database_authenticatable, :registerable,
+         :recoverable, :rememberable, :validatable
 end
