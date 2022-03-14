@@ -3,7 +3,7 @@ class BoxesController < ApplicationController
 
   # GET /boxes
   def index
-    @boxes = Box.all
+    @boxes = Box.page(params[:page]).per(10)
   end
 
   # GET /boxes/1
